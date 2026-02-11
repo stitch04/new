@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shabbu Turns 22</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    overflow: hidden;
+}
+
+/* INTRO SCREEN */
+#intro {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #0f2027;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+    text-align: center;
+}
+
+#intro h1 {
+    font-size: 4rem;
+    letter-spacing: 3px;
+    animation: fadeIn 2s ease forwards;
+}
+
+#enterBtn {
+    margin-top: 30px;
+    padding: 15px 30px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.4s;
+}
+
+#enterBtn:hover {
+    background: white;
+    color: #0f2027;
+}
+
+/* SLIDE CONTAINER */
+.container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+section {
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+button {
+    padding: 15px 30px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    border-radius: 40px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background: white;
+    color: #2c5364;
+}
+
+/* Floating white hearts */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    color: white;
+    font-size: 18px;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.7;
+}
+
+@keyframes floatUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-100vh); opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO SCREEN -->
+<div id="intro">
+    <h1>🎉 HAPPY BIRTHDAY SHABBU 🎉</h1>
+    <button id="enterBtn" onclick="enterSite()">Enter</button>
+</div>
+
+<!-- MAIN SLIDE CONTENT -->
+<div class="container">
+
+<section>
+<h1>🎉 BREAKING NEWS 🎉</h1>
+<h2>SHABBU TURNS 22</h2>
+<p>Profession: Being the sweetest human alive</p>
+<p>Special Skill: Making his girlfriend obsessed</p>
+</section>
+
+<section>
+<h2>🚨 OFFICIAL ANNOUNCEMENT 🚨</h2>
+<p>His softness levels increased by 22%</p>
+<p>His cuteness remains illegal</p>
+<p>His girlfriend is still down bad</p>
+</section>
+
+<section>
+<h2>📊 Birthday Stats</h2>
+<p>Level: 22 Unlocked</p>
+<p>+1000 Good Boy Points</p>
+<p>+500 Funny Energy</p>
+<p>+∞ Girlfriend Love</p>
+</section>
+
+<section>
+<h2>🏆 Awards He Has Won</h2>
+<p>Best Soft Boy 2004–Forever</p>
+<p>Cutest Smile Award</p>
+<p>“Mukku” of the Year</p>
+<p>Owner of My Entire Heart</p>
+</section>
+
+<section>
+<h2>💌 Personal Message</h2>
+
+<p>Shabbu,</p>
+
+<p>You are stronger than every fear you fight silently.
+You are bigger than every doubt that tries to shrink you.
+And your overthinking does not define your future.</p>
+
+<p>You have a heart that is rare.
+You have kindness that this world needs.
+You have a mind that can build anything it decides to believe in.</p>
+
+<p>Success is not running away from you.
+It is walking towards you.</p>
+
+<p>Luck is already on your side.
+And I will always be on your side too.</p>
+
+<p>So don’t be scared.
+Don’t overthink.
+Just keep going.</p>
+
+<p>And no matter what happens —
+always choose to stay happy.</p>
+
+<p>I’m so proud of you. Always. 🤍</p>
+
+<p>Happy Birthday Shabbu🤍 muahhh!</p>
+
+<button onclick="showSurprise()">Birthday Surprise 🎉</button>
+
+</section>
+
+</div>
+
+<script>
+function enterSite() {
+    document.getElementById("intro").style.display = "none";
+    document.body.style.overflow = "auto";
+
+    confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.6 }
+    });
+}
+
+function showSurprise() {
+    confetti({
+        particleCount: 150,
+        spread: 80,
+        origin: { y: 0.6 }
+    });
+    alert("🤍 Unlimited kisses unlocked. Valid for lifetime.");
+}
+
+// White floating hearts
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "🤍";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}, 800);
+</script>
+
+</body>
+</html>
